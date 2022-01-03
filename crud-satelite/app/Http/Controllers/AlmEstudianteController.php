@@ -44,7 +44,7 @@ class AlmEstudianteController extends Controller
         $rules = [
             "alm_codigo"=>"required|unique:alm_estudiantes,alm_codigo",
             "alm_nombre"=>"required",
-            "alm_edad"=>"required|min:2",
+            "alm_edad"=>"required|min:1",
             "alm_observacion"=>"required",
             "alm_sexo"=>"required|not_in:0",
         ];
@@ -101,7 +101,7 @@ class AlmEstudianteController extends Controller
     public function update(Request $request, Alm_estudiante $alm_estudiante)
     {
         //
-        $rules = [
+        /*$rules = [
             "alm_codigo"=>"required|unique:alm_estudiantes,alm_codigo,".$request["alm_codigo"],
             "alm_nombre"=>"required",
             "alm_edad"=>"required|min:2",
@@ -119,7 +119,7 @@ class AlmEstudianteController extends Controller
         ];
 
         $request->validate($rules, ['alm_codigo'=>'unique:alm_estudiantes,alm_codigo,'.$request["alm_id"].',alm_id'], $customMessages);
-
+*/
         $update = Alm_estudiante::find($request["alm_id"]);
         $update->alm_nombre = $request["alm_nombre"];
         $update->save();
@@ -134,8 +134,15 @@ class AlmEstudianteController extends Controller
      * @param  \App\Models\Alm_estudiante  $alm_estudiante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alm_estudiante $alm_estudiante)
+    public function destroy(Request $request, Alm_estudiante $alm_estudiante)
     {
         //
+        //$res=Alm_estudiante::find($alm_estudiante)->delete();
+        //$project = Alm_estudiante::where('alm_id', true)->get()->each->delete();
+        //$project->delete();  
+        $user = Alm_estudiante::find($request["alm_id"]);
+        $user->delete();
+        Session::flash('mensaje', 'Registro eliminado');
+        return redirect()->route('estudiante.index');
     }
 }

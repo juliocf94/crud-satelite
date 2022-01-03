@@ -28,6 +28,13 @@
                         <td>{{$row->alm_sexo}}</td>
                         <td>
                             <a href="{{ route('estudiante.edit', $row->alm_id) }}" class="btn btn-primary">Actualizar</a>
+                            <form action="{{ route('estudiante.destroy', $row->alm_id) }}" method="post" class="d-inline">
+                                @method('DELETE')
+                                @csrf
+                                <input type="hidden" name="alm_id" value="{{@$row->alm_id}}">
+
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Seguro en eliminar el registro')">Eliminar</button>
+                            </form>
                         </td>
                     </tr>                        
                     @empty

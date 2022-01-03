@@ -22,7 +22,7 @@
                 @csrf
                 <div class="col-md-4">
                     <label for="validationCodigo" class="form-label">Codigo estudiante</label>
-                    <input type="text" name="alm_codigo" class="form-control" id="validationCodigo" value="{{old('alm_codigo') ?? @$item->alm_codigo}}" required>
+                    <input type="text" name="alm_codigo" class="form-control" id="validationCodigo" value="{{old('alm_codigo') ?? @$item->alm_codigo}}" {{ isset($alm_codigo) ? 'disabled' : 'required' }} >
                     @error('alm_codigo')
                         <div class="form-text text-danger">{{$message}}</div>
                     @enderror
