@@ -10,6 +10,7 @@
                 
             @endforelse
         @else 
+            <h1>Crear estudiante</h1>
 
         @endif
         @if (isset($alm_codigo))

@@ -53,7 +53,7 @@ class AlmEstudianteController extends Controller
             'alm_codigo.required' => 'Agregar codigo para el estudiante.',
             'alm_codigo.unique' => 'El codigo ya existe.',
             'alm_nombre.required' => 'Agregar nombre completo del estudiante.',
-            'alm_edad.required' => 'Agregar edad cdel estudiante.',
+            'alm_edad.required' => 'Agregar edad del estudiante.',
             'alm_observacion.required' => 'Agregar su observación.',
             'alm_sexo.required' => 'Ssleccione el sexo del estudiante',
         ];
