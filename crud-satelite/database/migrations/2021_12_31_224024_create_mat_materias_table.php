@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlmAlumnosTable extends Migration
+class CreateMatMateriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateAlmAlumnosTable extends Migration
      */
     public function up()
     {
-        Schema::create('alm_alumnos', function (Blueprint $table) {
-            $table->id();
+        Schema::create('mat_materias', function (Blueprint $table) {
+            $table->bigIncrements("mat_id");
+            $table->string("mat_nombre",100)->comment = "NOMBRE DE LA MATERIA";
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateAlmAlumnosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alm_alumnos');
+        Schema::dropIfExists('mat_materias');
     }
 }
