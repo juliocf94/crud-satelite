@@ -12,8 +12,9 @@
         @else 
 
         @endif
-        @if (isset($alm_estudiante))
-            <form class="row g-3 needs-validated" novalidate action="{{ route('estudiante.update', $alm_estudiante) }}" method="post">
+        @if (isset($alm_codigo))
+            <form class="row g-3 needs-validated" novalidate action="{{ route('estudiante.update', @$item->alm_id) }}" method="post">
+            <input type="hidden" name="alm_id" value="{{@$item->alm_id}}">
             @method('PUT')
         @else
             <form class="row g-3 needs-validated" novalidate action="{{ route('estudiante.store') }}" method="post">
@@ -64,7 +65,7 @@
                 </div>
             
                 <div class="mb-3">
-                    @if (isset($alm_estudiante))
+                    @if (isset($alm_codigo))
                         <button class="btn btn-primary" type="submit">Editar</button>
                     @else
                         <button class="btn btn-primary" type="submit">Guardar</button>

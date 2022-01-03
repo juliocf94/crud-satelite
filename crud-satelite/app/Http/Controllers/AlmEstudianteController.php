@@ -101,6 +101,31 @@ class AlmEstudianteController extends Controller
     public function update(Request $request, Alm_estudiante $alm_estudiante)
     {
         //
+        $rules = [
+            "alm_codigo"=>"required|unique:alm_estudiantes,alm_codigo,".$request["alm_codigo"],
+            "alm_nombre"=>"required",
+            "alm_edad"=>"required|min:2",
+            "alm_observacion"=>"required",
+            "alm_sexo"=>"required|not_in:0",
+        ];
+
+        $customMessages = [
+            'alm_codigo.required' => 'Agregar codigo para el estudiante.',
+            'alm_codigo.unique' => 'El codigo ya existe.'.$request["alm_codigo"],
+            'alm_nombre.required' => 'Agregar nombre completo del estudiante.',
+            'alm_edad.required' => 'Agregar edad cdel estudiante.',
+            'alm_observacion.required' => 'Agregar su observación.',
+            'alm_sexo.required' => 'Ssleccione el sexo del estudiante',
+        ];
+
+        $request->validate($rules, ['alm_codigo'=>'unique:alm_estudiantes,alm_codigo,'.$request["alm_id"].',alm_id'], $customMessages);
+
+        $update = Alm_estudiante::find($request["alm_id"]);
+        $update->alm_nombre = $request["alm_nombre"];
+        $update->save();
+
+        Session::flash('mensaje', 'Registro actualizado');
+        return redirect()->route('estudiante.index');
     }
 
     /**
