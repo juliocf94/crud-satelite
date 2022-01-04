@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-01-2022 a las 06:06:48
+-- Tiempo de generación: 04-01-2022 a las 03:38:02
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -44,7 +44,7 @@ CREATE TABLE `alm_estudiantes` (
 --
 
 INSERT INTO `alm_estudiantes` (`alm_id`, `alm_codigo`, `alm_nombre`, `alm_edad`, `alm_sexo`, `alm_id_grd`, `alm_observacion`, `created_at`, `updated_at`) VALUES
-(8, '100', 'Elizabeth Guadalupe Reyes Lona', 20, 'F', 11, 'Estudiante de la facultad de psicología.', '2022-01-03 10:54:17', '2022-01-03 10:54:17'),
+(8, '100', 'Elizabeth Guadalupe Reyes', 20, 'F', 11, 'Estudiante de la facultad de psicología.', '2022-01-03 10:54:17', '2022-01-04 07:25:17'),
 (9, '200', 'Julio César Flores Fuentes', 27, 'M', 11, 'Estudiante de la facultad de ingeniería', '2022-01-03 10:56:49', '2022-01-03 10:56:49'),
 (10, '300', 'Elías Salvador Flores Reyes', 5, 'M', 11, 'Jardín de niños', '2022-01-03 10:57:54', '2022-01-03 10:57:54'),
 (11, '400', 'Ashley Guadalupe Flores Reyes', 6, 'F', 11, 'Estudiante de primer año', '2022-01-03 10:58:36', '2022-01-03 10:58:36'),
@@ -79,6 +79,15 @@ CREATE TABLE `grd_grados` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `grd_grados`
+--
+
+INSERT INTO `grd_grados` (`grd_id`, `grd_nombre`, `created_at`, `updated_at`) VALUES
+(1, 'Primero', NULL, NULL),
+(2, 'Segundo', '2022-01-04 01:30:02', '2022-01-04 01:30:02'),
+(3, 'Tercero', '2022-01-04 01:30:02', '2022-01-04 01:30:02');
+
 -- --------------------------------------------------------
 
 --
@@ -91,6 +100,14 @@ CREATE TABLE `mat_materias` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `mat_materias`
+--
+
+INSERT INTO `mat_materias` (`mat_id`, `mat_nombre`, `created_at`, `updated_at`) VALUES
+(1, 'Matematica', '2022-01-04 01:30:45', '2022-01-04 01:30:45'),
+(2, 'Lenguaje', '2022-01-04 01:30:45', '2022-01-04 01:30:45');
 
 -- --------------------------------------------------------
 
@@ -270,7 +287,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alm_estudiantes`
 --
 ALTER TABLE `alm_estudiantes`
-  MODIFY `alm_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `alm_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -282,13 +299,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `grd_grados`
 --
 ALTER TABLE `grd_grados`
-  MODIFY `grd_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `grd_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `mat_materias`
 --
 ALTER TABLE `mat_materias`
-  MODIFY `mat_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `mat_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
